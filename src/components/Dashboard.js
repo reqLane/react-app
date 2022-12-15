@@ -23,7 +23,7 @@ function Dashboard({authorized}) {
     const url2 = "50.45&longitude=30.52";
     const url3 = "&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset&current_weather=true&timezone=Europe%2FBerlin";
     let url;
-    if(isGeolocationAvailable && isGeolocationEnabled) {
+    if(isGeolocationAvailable && isGeolocationEnabled && coords) {
         url = url1 + coords.latitude + "&longtitude=" + coords.longitude + url3;
     }
     else {
