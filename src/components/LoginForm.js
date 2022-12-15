@@ -19,7 +19,7 @@ function LoginForm({Login, error, authorized}) {
                     <h2>Login</h2>
                     <div className="form-section">
                         <label htmlFor="login">Login:</label>
-                        <input type="text" name="login" id="login" onChange={e => setDetails({...details, login: e.target.value})} required={true}/>
+                        <input type="text" name="login" id="login" onChange={e => setDetails({...details, login: e.target.value})} autoFocus={true} required={true}/>
                     </div>
                     <div className="form-section">
                         <label htmlFor="password">Password:</label>

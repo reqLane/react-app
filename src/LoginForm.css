@@ -11,8 +11,8 @@
     height: 500px;
     background: rgba(72,200,200,0.7);
     border-radius: 2%;
-    border: 5px rgba(0,0,0,0.4) solid;
-    box-shadow: 1px 1px 200px black;
+    border: 5px rgba(0,0,0,0.8) solid;
+    box-shadow: 1px 1px 300px black;
 }
 .form-section {
     display: flex;
