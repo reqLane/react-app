@@ -6,6 +6,7 @@ import Loader from "./Loader";
 import DashboardHeader from "./DashboardHeader";
 import dayjs from "dayjs";
 import {useGeolocated} from "react-geolocated";
+import DaysContainer from "./DaysContainer";
 
 
 function Dashboard({authorized}) {
@@ -67,23 +68,20 @@ function Dashboard({authorized}) {
         }
     }
 
-    console.log(coords);
-    console.log(url);
-
     return (
         <div className="dashboard">
-            <DashboardHeader currentWeather={currentWeather} coords={coords}/>
-            <hr/>
-            <div className="daysContainer">
-                {(loading === true) ? (
-                    <Loader />
-                ) : (
-                    daysWeather.map((weather, i) =>
-                        <WeatherBlock key={i} weather={weather}/>
-                    )
-                )}
-            </div>
-            <hr/>
+            {(loading === true) ? (
+                <Loader />
+            ) : (
+                <>
+                    <DashboardHeader currentWeather={currentWeather} coords={coords}/>
+                    <hr/>
+                    <div className="daysContainer">
+                        <DaysContainer daysWeather={daysWeather} />
+                    </div>
+                    <hr/>
+                </>
+            )}
         </div>
     );
 }

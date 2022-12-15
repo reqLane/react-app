@@ -3,7 +3,8 @@
 }
 .daysContainer {
     width: 100%;
-    margin: 50px 0;
+    max-width: 1500px;
+    margin: 50px auto;
     display: flex;
     justify-content: space-around;
 }
