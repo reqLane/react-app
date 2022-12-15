@@ -3,6 +3,7 @@ import {Navigate} from "react-router";
 import axios from "axios";
 import WeatherBlock from "./WeatherBlock";
 import Loader from "./Loader";
+import DashboardHeader from "./DashboardHeader";
 import dayjs from "dayjs";
 
 
@@ -23,7 +24,12 @@ function Dashboard({authorized}) {
     },[]);
 
     let daysWeather = [];
+    let currentWeather;
     if(!loading) {
+        currentWeather = {
+            temp: weatherData.current_weather.temperature,
+            time: weatherData.current_weather.time.split("T")[1]
+        };
         for (let i = 0; i < 5; i++) {
             let day;
             if(i === 0) day = "Today";
@@ -47,14 +53,19 @@ function Dashboard({authorized}) {
     console.log(weatherData);
 
     return (
-        <div className="weather">
-            {(loading === true) ? (
-                <Loader />
-            ) : (
-                daysWeather.map((weather, i) =>
-                    <WeatherBlock key={i} weather={weather}/>
-                )
-            )}
+        <div className="dashboard">
+            <DashboardHeader currentWeather={currentWeather}/>
+            <hr/>
+            <div className="daysContainer">
+                {(loading === true) ? (
+                    <Loader />
+                ) : (
+                    daysWeather.map((weather, i) =>
+                        <WeatherBlock key={i} weather={weather}/>
+                    )
+                )}
+            </div>
+            <hr/>
         </div>
     );
 }

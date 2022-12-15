@@ -1,7 +1,9 @@
 * {
     font-family: sans-serif;
 }
-.weather {
+.daysContainer {
+    width: 100%;
+    margin: 50px 0;
     display: flex;
     justify-content: space-around;
 }

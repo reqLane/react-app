@@ -1,0 +1,20 @@
+.dashboard_header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.dashboard_header div {
+    text-align: center;
+}
+.city {
+    margin-left: 30px;
+}
+.time {
+    margin-left: 150px;
+}
+.temp {
+    margin-right: 30px;
+}

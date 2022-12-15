@@ -1,3 +1,11 @@
+.weather_block {
+    border: 1px solid rgba(0,0,0,0.8);
+    border-radius: 2%;
+    padding: 5px 20px;
+    box-shadow: 3px 3px 10px black;
+    height: 400px;
+}
 .blue_text * {
     color: dodgerblue;
+    font-size: 22px;
 }

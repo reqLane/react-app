@@ -12,10 +12,10 @@ function WeatherBlock({weather}) {
                 <p>Weather code: {weather.weatherCode}</p>
             </div>
             <div className="block_section">
-                <p>Max temperature: {weather.max_temp}</p>
+                <p>Max temperature: {weather.max_temp}°C</p>
             </div>
             <div className="block_section">
-                <p>Min temperature: {weather.min_temp}</p>
+                <p>Min temperature: {weather.min_temp}°C</p>
             </div>
             <div className="block_section">
                 <p>Sunrise: {weather.sunrise}</p>
