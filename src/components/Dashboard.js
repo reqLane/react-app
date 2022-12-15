@@ -3,6 +3,8 @@ import {Navigate} from "react-router";
 import axios from "axios";
 import WeatherBlock from "./WeatherBlock";
 import Loader from "./Loader";
+import dayjs from "dayjs";
+
 
 function Dashboard({authorized}) {
     if(!authorized) return (<Navigate to="/login" />);
@@ -24,7 +26,14 @@ function Dashboard({authorized}) {
     if(!loading) {
         for (let i = 0; i < 5; i++) {
             let day;
+            if(i === 0) day = "Today";
+            else if(i === 1) day = "Tomorrow";
+            else {
+                let words = dayjs(weatherData.daily.time[i]).toString().split(" ");
+                day = words[0] + " " + words[1] + " " + words[2];
+            }
             let weather = {
+                dayWord: day,
                 weatherCode: weatherData.daily.weathercode[i],
                 max_temp: weatherData.daily.temperature_2m_max[i],
                 min_temp: weatherData.daily.temperature_2m_min[i],

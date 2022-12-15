@@ -5,6 +5,9 @@ function WeatherBlock({weather}) {
 
     return (
         <div className="weather_block">
+            <div className="block_section blue_text">
+                <p>{weather.dayWord}</p>
+            </div>
             <div className="block_section">
                 <p>Weather code: {weather.weatherCode}</p>
             </div>

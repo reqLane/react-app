@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import './Loader.css';
 import './Dashboard.css';
+import './WeatherBlock.css'
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
 
