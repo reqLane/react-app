@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Navigate, Route, Routes} from "react-router";
 import LoginForm from "./components/LoginForm";
-import DashBoard from "./components/DashBoard";
+import Dashboard from "./components/Dashboard";
 
 function App() {
     const [user, setUser] = useState("");
@@ -22,7 +22,7 @@ function App() {
         <div className="App">
             <Routes>
                 <Route exact path="/login" element={<LoginForm Login={Login} error={error} authorized={user !== ""} />} />
-                <Route exact path="/dashboard" element={<DashBoard authorized={user !== ""} />} />
+                <Route exact path="/dashboard" element={<Dashboard authorized={user !== ""} />} />
                 <Route path="*" element={<Navigate to="/login" />} />
             </Routes>
         </div>

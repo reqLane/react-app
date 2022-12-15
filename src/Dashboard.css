@@ -1,0 +1,7 @@
+* {
+    font-family: sans-serif;
+}
+.weather {
+    display: flex;
+    justify-content: space-around;
+}
