@@ -5,12 +5,31 @@ import WeatherBlock from "./WeatherBlock";
 import Loader from "./Loader";
 import DashboardHeader from "./DashboardHeader";
 import dayjs from "dayjs";
+import {useGeolocated} from "react-geolocated";
 
 
 function Dashboard({authorized}) {
     if(!authorized) return (<Navigate to="/login" />);
 
-    const url = "https://api.open-meteo.com/v1/forecast?latitude=50.45&longitude=30.52&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset&current_weather=true&timezone=Europe%2FBerlin";
+    const {coords, isGeolocationAvailable, isGeolocationEnabled} =
+        useGeolocated({
+            positionOptions: {
+                enableHighAccuracy: false,
+            },
+            userDecisionTimeout: 5000,
+        });
+
+    const url1 = "https://api.open-meteo.com/v1/forecast?latitude=";
+    const url2 = "50.45&longitude=30.52";
+    const url3 = "&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset&current_weather=true&timezone=Europe%2FBerlin";
+    let url;
+    if(isGeolocationAvailable && isGeolocationEnabled) {
+        url = url1 + coords.latitude + "&longtitude=" + coords.longitude + url3;
+    }
+    else {
+        url = url1 + url2 + url3;
+    }
+
     const [weatherData, setWeatherData] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -50,7 +69,7 @@ function Dashboard({authorized}) {
         }
     }
 
-    console.log(weatherData);
+    console.log(coords);
 
     return (
         <div className="dashboard">
