@@ -14,7 +14,7 @@ function App() {
             setError("");
         }
         else {
-            setError("Login is invalid!");
+            setError("Login is invalid");
         }
     }
 
