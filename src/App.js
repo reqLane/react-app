@@ -2,13 +2,16 @@ import React, {useState} from "react";
 import {Navigate, Route, Routes} from "react-router";
 import LoginForm from "./components/LoginForm";
 import Dashboard from "./components/Dashboard";
-import useCookie from "react-use-cookie";
+import useCookie, {getCookie} from "react-use-cookie";
 
 function App() {
     const [user, setUser] = useState("");
     const [error, setError] = useState("");
 
     const [userToken, setUserToken] = useCookie('loginKey', '');
+    if(userToken !== undefined && userToken !== null && userToken !== "" && user === "") {
+        setUser(userToken);
+    }
 
     const Login = details => {
         let loginRegExp = new RegExp(/[a-zA-Z]+[1-9]/);
