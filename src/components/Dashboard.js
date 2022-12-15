@@ -10,9 +10,9 @@ import {useGeolocated} from "react-geolocated";
 
 function Dashboard({authorized}) {
     if(!authorized) return (<Navigate to="/login" />);
+
     const [weatherData, setWeatherData] = useState([]);
     const [loading, setLoading] = useState(true);
-
     const {coords, isGeolocationAvailable, isGeolocationEnabled} =
         useGeolocated({
             positionOptions: {

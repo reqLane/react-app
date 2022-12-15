@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import {Navigate} from "react-router";
+import useCookie from 'react-use-cookie'
 
 function LoginForm({Login, error, authorized}) {
     if(authorized) return (<Navigate to="/dashboard" />);
 
     const [details, setDetails] = useState({login: "", password: ""});
+
+    const [userToken, setUserToken] = useCookie();
 
     const submitFunc = e => {
         e.preventDefault();
