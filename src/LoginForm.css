@@ -9,11 +9,49 @@
     margin: 20vh auto;
     width: 40%;
     height: 500px;
-    border: 1px solid black;
-    background: ghostwhite;
+    background: rgba(72,200,200,0.7);
+    border-radius: 2%;
+    border: 5px rgba(0,0,0,0.4) solid;
+    box-shadow: 1px 1px 200px black;
 }
 .form-section {
     display: flex;
     justify-content: space-between;
+    width: 90%;
+    height: 35px;
+    margin: 0 auto;
+}
+.form-section label {
+    font-size: 25px;
+}
+.form-section input {
+    width: 40%;
+    font-size: 20px;
+    padding: 5px;
+    height: 100%;
+}
+.form-inside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 90%;
+    height: 90%;
+    margin: 20px auto;
+}
+.form-inside h2 {
     width: 100%;
+    font-size: 30px;
+    text-align: center;
+}
+.login_button {
+    width: 60%;
+    margin: 0 auto;
+    height: 50px;
+    border: 1px black solid;
+    border-radius: 10px;
+    transition: .3s;
+}
+.login_button:hover {
+    cursor: pointer;
+    background-color: dodgerblue;
 }

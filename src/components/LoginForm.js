@@ -25,7 +25,7 @@ function LoginForm({Login, error, authorized}) {
                         <label htmlFor="password">Password:</label>
                         <input type="password" name="password" id="password" onChange={e => setDetails({...details, password: e.target.value})} required={true}/>
                     </div>
-                    <input type="submit" value="LOGIN"/>
+                    <input className="login_button" type="submit" value="LOGIN"/>
                     {(error !== "") ? (
                         <div className="error">{error}</div>
                     ) : ""}
