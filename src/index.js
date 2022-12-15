@@ -5,6 +5,7 @@ import './Loader.css';
 import './Dashboard.css';
 import './WeatherBlock.css'
 import './DashboardHeader.css'
+import './LoginForm.css'
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
 
