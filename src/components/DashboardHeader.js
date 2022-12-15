@@ -1,12 +1,13 @@
 import React from "react";
 
 
-function DashboardHeader({currentWeather}) {
+function DashboardHeader({currentWeather, coords}) {
 
     return (
         <div className="dashboard_header">
             <div className="city">
                 <h1>Kyiv</h1>
+                <p className="coords">({coords !== undefined ? coords.latitude + "; " + coords.longitude : "Geolocation not enabled"})</p>
             </div>
             <div className="time">
                 <h1>Time: {currentWeather !== undefined ? currentWeather.time : "0:00"}</h1>

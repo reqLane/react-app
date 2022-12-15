@@ -10,6 +10,8 @@ import {useGeolocated} from "react-geolocated";
 
 function Dashboard({authorized}) {
     if(!authorized) return (<Navigate to="/login" />);
+    const [weatherData, setWeatherData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const {coords, isGeolocationAvailable, isGeolocationEnabled} =
         useGeolocated({
@@ -18,7 +20,6 @@ function Dashboard({authorized}) {
             },
             userDecisionTimeout: 5000,
         });
-
     const url1 = "https://api.open-meteo.com/v1/forecast?latitude=";
     const url2 = "50.45&longitude=30.52";
     const url3 = "&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset&current_weather=true&timezone=Europe%2FBerlin";
@@ -29,9 +30,6 @@ function Dashboard({authorized}) {
     else {
         url = url1 + url2 + url3;
     }
-
-    const [weatherData, setWeatherData] = useState([]);
-    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         axios
@@ -70,10 +68,11 @@ function Dashboard({authorized}) {
     }
 
     console.log(coords);
+    console.log(url);
 
     return (
         <div className="dashboard">
-            <DashboardHeader currentWeather={currentWeather}/>
+            <DashboardHeader currentWeather={currentWeather} coords={coords}/>
             <hr/>
             <div className="daysContainer">
                 {(loading === true) ? (
